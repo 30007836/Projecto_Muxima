@@ -1,0 +1,25 @@
+<h2 class="page-header">Procurar Categorias</h2>
+<form action="/categories" method="GET">
+  <div class="form-row">
+    <div class="form-item">
+  <label>Name</label>
+  <input type="text" name="name" value="<%= searchOptions.name %>">
+</div>
+</div>
+<div class="form-row form-row-end">
+  <button class="btn btn-primary" type="submit">Pesquisar</button>
+</div>
+</form>
+<br>
+<%  user.forEach(user => { %>
+  <div class="author-row">
+    <div class="author-name"><%= user.name %></div>
+  <div class="btn-row">
+    <a class="btn btn-primary" href="/users/<%= user.id %>">Ver</a>
+    <a class="btn btn-primary" href="/user/<%= user.idd %>/edit">Editar</a>
+    <%- include('../partials/deleteForm',
+                { url: `/users/${user.id.id}` }) %>
+  </div>
+  </div>
+<%  }) %>
+

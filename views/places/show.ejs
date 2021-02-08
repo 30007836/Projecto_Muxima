@@ -1,0 +1,29 @@
+<h2 class="page-header">
+    <%= place.name %>
+</h2>
+<div class="place-details">
+    <img class="place-cover" src="<%= place.mainImagePath %>">
+
+    <div class="place-details-grid">
+        <div class="place-details-label">Categoria: <%= place.category.name %>
+        </div>
+        <div class="place-details-label">Endereço: <%= place.address %>
+        </div>
+        <div class="place-details-label">Provincia: <%= place.province %>
+        </div>
+        <div class="place-details-label">Descrição: <%= place.description %>
+        </div>
+    </div>
+</div>
+
+<div class="place-details-btn-grid">
+    <% if (typeof admin !== 'undefined'){ %>
+    <a class="btn btn-primary" href="/places/<%= place.id %>/edit">Editar</a>
+    <%- include('../partials/deleteForm', { url: `/places/${place.id}` }) %>
+    <% }  %>
+        <a class="btn btn-primary place-details-author-button" href="/categories/<%= place.category.id %>">Ver Todas Imagens dessa
+            Categoria</a>
+</div>
+  
+
+

@@ -1,0 +1,29 @@
+
+<h2 class="page-header">Procurar Lugares</h2>
+<form action="/places" method="GET">
+  <div class="form-row">
+    <div class="form-item">
+    <label>Nome</label>
+    <input type="text" name="name" value="<%= searchOptions.name %>">
+  </div>
+</div>
+<div class="form-row form-row-end">
+    <button class="btn btn-primary" type="submit">Procurar</button>
+  </div>
+
+  
+</form>
+<div>
+  <% places.forEach(place => { %>
+    <div style="display: inline-block;">     
+        <p >
+          <%= place.name %>
+        </p>
+      <a href="/places/<%= place.id %>">
+        <figure>
+          <img height="350" width="500" src="<%= place.mainImagePath %>">
+        </figure>    
+      </a>  
+</div>
+  <% }) %>
+</div>

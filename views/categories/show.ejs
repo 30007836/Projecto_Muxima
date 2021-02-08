@@ -1,0 +1,20 @@
+<h2 class="page-header">
+  <%= category.name %>
+</h2>
+
+<% if (typeof admin !=='undefined'){ %>
+  <div class="btn-row">
+
+    <a class="btn btn-primary" href="/categories/<%= category.id %>/edit">Editar</a>
+    <a class="btn btn-primary" href="/categories/">Voltar</a>
+    <%- include('../partials/deleteForm', { url: `/categories/${category.id}` }) %>
+  </div>
+  <% } %>
+    <% if (placesByCategory.length> 0) { %>
+      <h2 class="page-header">Locais dessa Categoria</h2>
+      <% placesByCategory.forEach(place=> { %>
+        <a href="/places/<%= place.id %>">
+          <img height="350" width="500" src="<%= place.mainImagePath %>">
+        </a>
+        <% }) %>
+          <% } %>

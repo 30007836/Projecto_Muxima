@@ -1,0 +1,54 @@
+
+  <h2 class="page-header">Explorando o Coração de Angola</h2>
+  <div >
+    
+      <% places.forEach(place=> { %>
+        
+          <div  class ="imagens" style="display: inline-block;">
+            <form id="form" action="/favorites" method="POST">
+              <p >
+                <%= place.name %>
+              </p>
+            <a href="/places/client/<%= place.id %>">
+              <figure>
+                <img height="350" width="500" src="<%= place.mainImagePath %>">
+              </figure>             
+                
+                  <input name="place" id='place' value='<%= place.id %>' style="display: none;"></input>
+            </a>            
+
+            <% if (typeof user !=='undefined' ){ %>
+
+              <% let i = false %>
+
+              <input name="user" id='user' value="<%= user.id %>" style="display: none;"></input>
+              <i onclick="criaClickEventoFavoritos()" class="fa fa-star-o" style="display: none;"></i>
+
+              <% favorites.forEach(favorite=> { %>
+
+                <% if (place.id == favorite.placeId && user.id == favorite.userId){ %>
+
+                  <button class="imgClickAndChange" onclick="changeImage()" type="submit"><img class="start" style="width: 30px; height: 30px;"
+                      src="imagens/starY.png" /></button>
+
+                      <%  i = true %>
+
+                  <% } %>                     
+
+                    
+               <% }) %>
+
+               <% if ( i == false ){ %>                   
+
+                <button class="imgClickAndChange" onclick="changeImage()" type="submit"><img class="start" style="width: 30px; height: 30px;"
+                  src="imagens/starB.png" /></button>
+
+                  <% } %>   
+
+                </figcaption>
+
+             <% } %>
+            </form>
+  </div>
+  <% }) %>    
+    </div>

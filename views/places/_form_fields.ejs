@@ -1,0 +1,63 @@
+<div class="form-row">
+  <div class="form-item">
+    <label>Nome</label>
+    <input type="text" name="name" value="<%= place.name %>">
+  </div>
+  <div class="form-item">
+    <label>Categoria</label>
+    <select name="category">
+      <% categories.forEach(category=> { %>
+        <% if (category.id===place.category) { %>
+          <option selected label="<%= category.name %>" value="<%= category.id %>">
+            <% } else { %>
+          <option label="<%= category.name %>" value="<%= category.id %>">
+            <% } %>
+              <% }) %>
+    </select>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-item">
+    <label>Endereço</label>
+    <input type="text" name="address" value="<%= place.address %>">
+  </div>
+
+  <div class="form-item">
+    <label>Província</label>
+    <select name="province" value="<%= place.province %>">
+      <option value="Luanda">Luanda</option> 
+      <option value="Huambo">Huambo</option>
+      <option value="Kwanza Sul">Kwanza Sul</option>
+      <option value="Kwanza Norte">Kwanza Norte</option>
+      <option value="Bengo">Bengo</option>
+      <option value="Benguela">Benguela</option>
+      <option value="Bié">Bié</option>
+      <option value="Cabinda">Cabinda</option>
+      <option value="Cuando-Cubango">Cuando-Cubango</option>
+      <option value="Cunene">Cunene</option>
+      <option value="Uíge">Uíge</option>
+      <option value="Huíla">Huíla</option>
+      <option value="Lunda Norte">Lunda Norte	</option>
+      <option value="Lunda Sul">Lunda Sul</option>
+      <option value="Malanje">Malanje</option>
+      <option value="Moxico">Moxico</option>
+      <option value="Namibe">Namibe</option>
+      <option value="Zaire">Zaire</option>
+
+    </select>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-item form-item-no-grow">
+    <label>Imagem</label>
+    <input type="file" name="mainImageName" class="filepond">
+  </div>
+  <div class="form-item">
+    <label>Descrição</label>
+    <textarea name="description"><%= place.description %></textarea>
+  </div>
+</div>
+
+

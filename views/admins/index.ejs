@@ -1,0 +1,25 @@
+<h2 class="page-header">Procurar Administradores</h2>
+<form action="/categories" method="GET">
+  <div class="form-row">
+    <div class="form-item">
+  <label>Name</label>
+  <input type="text" name="name" value="<%= searchOptions.name %>">
+</div>
+</div>
+<div class="form-row form-row-end">
+  <button class="btn btn-primary" type="submit">Pesquisar</button>
+</div>
+</form>
+<br>
+<%  admin.forEach(admin => { %>
+  <div class="category-row">
+    <div class="category-name"><%= admin.name %></div>
+  <div class="btn-row">
+    <a class="btn btn-primary" href="/admins/<%= admin.id %>">Ver</a>
+    <a class="btn btn-primary" href="/admin/<%= admin.idd %>/edit">Editar</a>
+    <%- include('../partials/deleteForm',
+                { url: `/admins/${admin.id.id}` }) %>
+  </div>
+  </div>
+<%  }) %>
+

@@ -1,0 +1,53 @@
+<section>
+
+
+<h1 class="mt-4">Dashboard - Utilizadores Administradores</h1>
+
+<h2 class="page-header">Procurar admins</h2>
+
+<form action="/admins/dashboard" method="GET">
+  <div class="form-row">
+    <div class="form-item">
+  <label>Name</label>
+  <input type="text" name="name" value="<%= searchOptions.name %>">
+</div>
+</div>
+
+<div class="form-row form-row-end">
+    <button class="btn btn-primary" type="submit">Pesquisar</button>  
+
+  </div>
+  </form>
+  <p>
+    <a  class="btn btn-danger" href="/admins/register">Add Administrador</a>
+  </p>
+  <br>
+  <%  admins.forEach(admin => { %>
+    <div class="category-row">
+      <div class="category-name"><%= admin.name %> - <%= admin.email %></div>
+    <div class="btn-row">
+      
+      <a class="btn btn-primary" href="/admins/<%= admin.id %>/edit">Editar</a>
+      <%- include('../partials/deleteForm',
+                  { url: `/admins/${admin.id}` }) %>
+    </div>
+    </div>
+  <%  }) %>
+</section>
+<section>
+  <h1 class="mt-4">Dashboard - Gestão de Clientes</h1>
+
+  <%  users.forEach(user1 => { %>
+    <div class="category-row">
+      <div class="category-name"><%= user1.name %> - <%= user1.email %></div>
+    <div class="btn-row">
+      
+      
+      <%- include('../partials/deleteForm',
+                  { url: `/users/${user1.id}` }) %>
+    </div>
+    </div>
+  <%  }) %>
+
+</section>
+

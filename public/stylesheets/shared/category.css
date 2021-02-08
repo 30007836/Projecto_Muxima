@@ -1,0 +1,9 @@
+.category-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.category-name {
+  font-size: 1.5rem;
+}

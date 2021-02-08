@@ -1,0 +1,6 @@
+<h2 class="page-header"><%= admins.email %></h2>
+<div class="btn-row">
+<a class="btn btn-primary" href="/admins/<%= admins.id %>/edit">Editar</a>
+<%- include('../partials/deleteForm',
+            { url: `/admins/${admins.id}` }) %>
+          </div>

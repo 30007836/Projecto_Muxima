@@ -1,0 +1,38 @@
+<header>
+  <nav class="header-nav">
+    <h1><a class="header-title" href="/">Muxima Explorer</a></h1>
+    <ul>
+      
+      
+      <% if (typeof user !=='undefined' ){ %>   
+        <li><a href="/">Inicio</a></li> 
+             
+        <li><a href="/users/dashboard">Minha Conta</a></li>
+        <li><a href="/users/logout" >Logout - <%= user.name %></a></li>
+        
+
+      <% } else if (typeof admin !=='undefined' ){ %>
+                
+        <li><a href="/categories">Editar Categorias</a></li>
+      <li><a href="/categories/new">Add Categorias</a></li>     
+      <li><a href="/places">Editar Lugares</a></li>           
+      <li><a href="/places/new">Add Lugares</a></li>
+      <li><a href="/admins/dashboard">Gerir Utilizadores</a></li>
+        <li><a href="/admins/logout" >Logout - <%= admin.name %></a></li>
+        
+        
+        <% } else  {  %>       
+          <li><a href="/">Inicio</a></li> 
+          
+      <li><a href="/users/login">Login</a></li>      
+      <li><a href="/users/register">Cadastro</a>
+      </li><li><a href="/admins/login">For-Admins<a></li> 
+
+        <% } %>
+       
+            
+    </ul>    
+    </ul>
+  </nav>
+</header>
+
